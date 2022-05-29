@@ -27,20 +27,6 @@ const rules = computed(() => {
   };
 });
 const v$ = useVuelidate(rules, state);
-console.log("v$->", v$.value.login.userName.$error);
-
-// const validations = () => {
-//   return {
-//     login: {
-//       userName: {
-//         required,
-//       },
-//       password: {
-//         required,
-//       },
-//     },
-//   };
-// };
 
 const authStore = useAuthStore();
 const router = useRouter();

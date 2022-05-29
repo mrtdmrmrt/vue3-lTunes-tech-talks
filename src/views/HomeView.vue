@@ -7,18 +7,23 @@ import { createToaster } from "@meforma/vue-toaster";
 import MainHeader from "@/components/MainHeader.vue";
 import CarList from "@/components/CarList.vue";
 
+import getCarList from "../composables/getCarList";
 import { useCarsStore } from "../stores/cars";
+
+const { carListData, fetchCarList } = getCarList();
 
 const carsStore = useCarsStore();
 
 const gettersCarList = computed(() => {
-  return carsStore.gettersCarList;
+  return carListData.value;
+  //return carsStore.gettersCarList;
 });
 
-console.log("gettersCarList", gettersCarList);
 const carList = async () => {
-  await carsStore.getCarList();
+  await fetchCarList();
+  //await carsStore.getCarList();
 };
+
 onMounted(() => {
   carList();
 });

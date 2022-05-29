@@ -1,6 +1,5 @@
 <script setup>
 const props = defineProps(["car"]);
-console.log("props", props.car);
 
 const emit = defineEmits(["setCart", "carDetail"]);
 const setCart = (item) => {

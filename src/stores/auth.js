@@ -3,6 +3,7 @@ import { authService } from "../services";
 
 export const useAuthStore = defineStore({
   id: "auth",
+  persist: true,
   state: () => ({
     isLogin: false,
     loginUser: {},

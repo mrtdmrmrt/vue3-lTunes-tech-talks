@@ -2,7 +2,6 @@
 import CarCard from "./CarCard.vue";
 
 const props = defineProps(["gettersCarList"]);
-console.log("props", props.gettersCarList);
 
 const emit = defineEmits(["onSetCart", "onCarDetail"]);
 const onSetCart = (item) => {
