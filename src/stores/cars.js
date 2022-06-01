@@ -7,11 +7,13 @@ export const useCarsStore = defineStore({
     carList: [],
     carCart: [],
     carDetail: {},
+    carRez: null,
   }),
   getters: {
     gettersCarList: (state) => state.carList,
     gettersCarCart: (state) => state.carCart,
     gettersCarDetail: (state) => state.carDetail,
+    gettersCarRez: (state) => state.carRez,
   },
   actions: {
     async getCarList() {
@@ -40,6 +42,11 @@ export const useCarsStore = defineStore({
     },
     async setCarCartDelete(data) {
       this.carCart = this.carCart.filter((car) => car.id != data.id);
+    },
+    async setCarRez(data) {
+      const res = await carService.carRez(data);
+      this.carRez = res.data;
+      return res;
     },
   },
 });

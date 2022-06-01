@@ -27,10 +27,8 @@ const rules = computed(() => {
   };
 });
 const v$ = useVuelidate(rules, state);
-
 const authStore = useAuthStore();
 const router = useRouter();
-
 const signIn = async () => {
   v$.value.$validate();
   if (v$.value.$invalid) {
@@ -54,7 +52,9 @@ const signIn = async () => {
           id="inputEmail3"
           v-model="state.login.userName"
         />
-        <small v-if="!v$.login.userName.$error" class="form-text text-danger"
+        <small
+          v-if="v$.login.userName.required.$invalid"
+          class="form-text text-danger"
           >*Bu alan zorunludur</small
         >
       </div>
@@ -70,7 +70,9 @@ const signIn = async () => {
           id="inputPassword3"
           v-model="state.login.password"
         />
-        <small v-if="!v$.login.userName.$error" class="form-text text-danger"
+        <small
+          v-if="v$.login.password.required.$invalid"
+          class="form-text text-danger"
           >*Bu alan zorunludur</small
         >
       </div>

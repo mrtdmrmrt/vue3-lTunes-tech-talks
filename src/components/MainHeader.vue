@@ -1,9 +1,11 @@
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import { useCarsStore } from "../stores/cars";
 
 import CustomNotification from "@/components/CustomNotification.vue";
 const showNotification = ref(false);
+const router = useRouter();
 
 const carsStore = useCarsStore();
 const gettersCarCart = computed(() => {
@@ -13,6 +15,10 @@ const gettersCarCart = computed(() => {
 const emit = defineEmits(["onDeleteCarCart"]);
 const onDeleteCarCart = (item) => {
   emit("on-delete-car-cart", item);
+};
+
+const onReservationClick = () => {
+  router.push("/reservation");
 };
 </script>
 
@@ -43,6 +49,7 @@ const onDeleteCarCart = (item) => {
           :notificationList="gettersCarCart"
           @close="showNotification = $event"
           @on-delete-car-cart="onDeleteCarCart($event)"
+          @on-reservation-click="onReservationClick"
         />
       </transition>
     </div>

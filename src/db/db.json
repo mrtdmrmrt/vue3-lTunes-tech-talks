@@ -40,5 +40,34 @@
       "price": "371.000",
       "photo": "https://images.dod.com.tr/1373633_1_320x240.jpg"
     }
+  ],
+  "rez": [
+    {
+      "rezCars": [
+        {
+          "id": 4,
+          "brand": "Dacia",
+          "model": "Sandero",
+          "year": "2019",
+          "km": "24.910",
+          "price": "371.000",
+          "photo": "https://images.dod.com.tr/1373633_1_320x240.jpg"
+        },
+        {
+          "id": 3,
+          "brand": "Kia",
+          "model": "Sportage",
+          "year": "2019",
+          "km": "14.910",
+          "price": "731.000",
+          "photo": "https://images.dod.com.tr/1277802_1_320x240.jpg"
+        }
+      ],
+      "tc": "11111111111",
+      "name": "asd",
+      "surName": "asd",
+      "email": "asd@asd.de",
+      "id": 1
+    }
   ]
 }

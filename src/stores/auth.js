@@ -19,7 +19,7 @@ export const useAuthStore = defineStore({
         data.userName == res.data.userName &&
         data.password == res.data.password
       ) {
-        this.loginUser = res;
+        this.loginUser = res.data;
         this.isLogin = true;
         return {
           ...res.data,

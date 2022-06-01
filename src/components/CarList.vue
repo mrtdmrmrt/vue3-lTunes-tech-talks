@@ -15,9 +15,14 @@ const onCarDetail = (item) => {
 <template>
   <div class="container mt-4 d-flex flex-wrap">
     <CarCard
+      class="m-2"
       v-for="car in props.gettersCarList"
       :key="car.id"
       :car="car"
+      :isSetCart="true"
+      :isCarDetail="true"
+      :isDeleteCart="false"
+      :isBtnCenter="false"
       @on-set-cart="onSetCart($event)"
       @on-car-detail="onCarDetail($event)"
     />

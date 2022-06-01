@@ -18,6 +18,17 @@ export default [
     },
   },
   {
+    path: "/reservation",
+    name: "Reservation",
+    component: () =>
+      import(
+        /* webpackChunkName: "reservation" */ "../views/ReservationView.vue"
+      ),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/login",
     name: "Login",
     component: () =>

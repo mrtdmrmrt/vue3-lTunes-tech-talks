@@ -3,12 +3,15 @@ import { onMounted, onUnmounted } from "vue";
 
 const props = defineProps(["notificationList"]);
 
-const emit = defineEmits(["close", "deleteCarCart"]);
+const emit = defineEmits(["close", "deleteCarCart", "onReservationClick"]);
 const close = () => {
   emit("close", false);
 };
 const deleteCarCart = (item) => {
   emit("on-delete-car-cart", item);
+};
+const onReservationClick = () => {
+  emit("on-reservation-click");
 };
 const clickOutSide = (e) => {
   let el = document.getElementById("notificationContent");
@@ -62,6 +65,9 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+    <div class="custom-notification__footer">
+      <a @click="onReservationClick">Rezervasyona Git</a>
+    </div>
   </div>
 </template>
 
@@ -70,7 +76,7 @@ onUnmounted(() => {
   cursor: default;
   position: absolute;
   width: 352px;
-  height: 165px;
+  height: 186px;
   right: 30px;
   top: 58px;
 
@@ -85,5 +91,17 @@ onUnmounted(() => {
 .custom-notification__contents {
   height: 130px;
   overflow-y: auto;
+}
+.custom-notification__footer {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.custom-notification__footer a {
+  cursor: pointer;
+}
+.custom-notification__footer a:hover {
+  text-decoration: underline !important;
 }
 </style>
